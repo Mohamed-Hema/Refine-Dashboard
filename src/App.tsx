@@ -9,7 +9,7 @@ import routerBindings, {
   DocumentTitleHandler,
   UnsavedChangesNotifier,
 } from "@refinedev/react-router";
-import dataProvider from "@refinedev/simple-rest";
+import { dataProvider, liveProvider } from "./providers";
 import { App as AntdApp } from "antd";
 import { BrowserRouter, Route, Routes } from "react-router";
 
@@ -21,9 +21,10 @@ function App() {
         <AntdApp>
           <DevtoolsProvider>
             <Refine
-              // dataProvider={dataProvider("https://api.fake-rest.refine.dev")}
-              // notificationProvider={useNotificationProvider}
-              // routerProvider={routerBindings}
+              dataProvider={dataProvider}
+              liveProvider={liveProvider}
+              notificationProvider={useNotificationProvider}
+              routerProvider={routerBindings}
               // authProvider={authProvider}
               options={{
                 syncWithLocation: true,
