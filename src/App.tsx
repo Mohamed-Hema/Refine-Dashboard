@@ -12,6 +12,8 @@ import routerBindings, {
 import { dataProvider, liveProvider } from "./providers";
 import { App as AntdApp } from "antd";
 import { BrowserRouter, Route, Routes } from "react-router";
+import { authProvider } from "./providers/auth";
+import { Home, ForgotPassword, Login, Register } from "./pages";
 
 function App() {
   return (
@@ -25,7 +27,7 @@ function App() {
               liveProvider={liveProvider}
               notificationProvider={useNotificationProvider}
               routerProvider={routerBindings}
-              // authProvider={authProvider}
+              authProvider={authProvider}
               options={{
                 syncWithLocation: true,
                 warnWhenUnsavedChanges: true,
@@ -35,6 +37,14 @@ function App() {
             >
               <Routes>
                 <Route index element={<WelcomePage />} />
+                <Route index element={<Home />} />
+                <Route path="/register" index element={<Register />} />
+                <Route path="/login" index element={<Login />} />
+                <Route
+                  path="/forgotpassword"
+                  index
+                  element={<ForgotPassword />}
+                />
               </Routes>
               <RefineKbar />
               <UnsavedChangesNotifier />
