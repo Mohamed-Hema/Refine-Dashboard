@@ -21,8 +21,6 @@ import { authProvider } from "./providers/auth";
 import { Home, ForgotPassword, Login, Register } from "./pages";
 import { Layout } from "./components/layout";
 
-// Fixed the export syntax - use one of these two options:
-// Option 1:
 const App = () => {
   return (
     <BrowserRouter>
